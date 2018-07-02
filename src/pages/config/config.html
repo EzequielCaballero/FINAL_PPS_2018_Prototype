@@ -1,11 +1,6 @@
 <ion-content>
 
-  <!-- SPINNER -->
-  <div *ngIf="mostrarSpinner" class="spinner">
-    <img src="assets/imgs/spinner_black.png" alt="spinner">
-  </div>
-
-  <div *ngIf="!mostrarSpinner">
+  <div>
 
     <div>
       <ion-item class="language_selected" no-lines>
@@ -29,6 +24,11 @@
     </div>
   </div>
 
+  <!-- SPINNER -->
+  <div *ngIf="mostrarSpinner" class="spinner">
+    <img src="assets/imgs/spinner_black.png" alt="spinner">
+  </div>
+  
   <!-- MAP -->
   <div *ngIf="!mostrarSpinner" xFlex="100" class="map-full-card-content">
     <agm-map [latitude]="lat"

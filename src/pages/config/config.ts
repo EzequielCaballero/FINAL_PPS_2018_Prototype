@@ -4,6 +4,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 //LANGUAGE PACKAGE
 import { text } from '../../assets/data/language_package';
+//SERVICE
+import { GeocodingProvider } from '../../providers/geocoding/geocoding';
 
 @Component({
   selector: 'page-config',
@@ -26,7 +28,8 @@ export class ConfigPage implements AfterViewInit {
   lng:number;
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams) {
+              public navParams: NavParams,
+              private _geoCoding:GeocodingProvider) {
 
       this.language = text.language.es;
       console.log("LENGUAJE: " + JSON.stringify(this.language));
@@ -102,6 +105,21 @@ export class ConfigPage implements AfterViewInit {
                   this.flag_pt.nativeElement.className = 'flag flag_selected';
                   break;
     }
+  }
+
+  selectLocation(event){
+    this.mostrarSpinner = true;
+    this._geoCoding.obtenerDireccion(event.coords.lat, event.coords.lng)
+      .then((data:any)=>{
+        this.lat = event.coords.lat;
+        this.lng = event.coords.lng;
+        console.log("Dirección: " + data);
+        this.mostrarSpinner = false;
+      })
+      .catch((error)=>{
+        console.log("ERROR: al convertir coordenadas -> dirección: " + error);
+      })
+
   }
 
 }
