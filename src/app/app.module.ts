@@ -6,7 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 //CONFIGURACION ENVIRONMENT
 import { environment } from '../environments/environment';
-
+//GOOGLE MAPS
+import { AgmCoreModule } from '@agm/core';
 // PAGINAS
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -20,7 +21,8 @@ import { ConfigPage } from '../pages/config/config';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({ apiKey: environment.googleMaps.apiKey })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
