@@ -1,5 +1,17 @@
 page-config {
 
+  .flags_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flag{
+    height: 50px;
+    width: 50px;
+    padding: 5px;
+  }
+
   .map-full-card-content {
     position:sticky;
     height: 100% !important;
@@ -8,7 +20,7 @@ page-config {
   }
 
   agm-map {
-  	  height: 90%; //Ocuparía toda la pantalla.
+  	  height: 90%;
   }
 
 }
