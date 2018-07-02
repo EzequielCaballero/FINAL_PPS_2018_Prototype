@@ -1,3 +1,21 @@
-<ion-content padding>
+<ion-content>
+  <!-- BANDERAS -->
+  <div>
+    <p>BANDERAS</p>
+  </div>
+  <!-- MAPA -->
+  <div xFlex="100" class="map-full-card-content">
+    <agm-map [latitude]="lat"
+             [longitude]="lng"
+             [zoom]="3"
+             [disableDefaultUI]="true"
+             [streetViewControl]="false"
+             (mapClick)="marcarUbicacion($event)">
+        <agm-marker
+          [latitude]="lat"
+          [longitude]="lng">
+        </agm-marker>
+    </agm-map>
+  </div>
 
 </ion-content>
