@@ -1,0 +1,8 @@
+{
+  "name": "FINAL_PPS_2018_Prototype",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
