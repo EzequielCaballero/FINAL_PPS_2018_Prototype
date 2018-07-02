@@ -1,5 +1,18 @@
 page-config {
 
+  .back_button{
+    position: fixed;
+    border-radius: 50%;
+    top: 0px;
+    left: 5px;
+  }
+
+  .language_selected{
+    color: white;
+    font-size: 20px;
+    background-color: rgb(49, 85, 61);
+  }
+
   .flags_container{
     display: flex;
     justify-content: center;
@@ -9,7 +22,6 @@ page-config {
   .flag{
     height: 50px;
     width: 50px;
-    padding: 5px;
   }
 
   .map-full-card-content {
@@ -20,7 +32,37 @@ page-config {
   }
 
   agm-map {
-  	  height: 90%;
+  	  height: 80%;
+  }
+
+  .spinner {
+    width: 100px;
+    height: 100px;
+    margin: 100px auto;
+    background-color: rgba(#333333, 0);
+
+    border-radius: 100%;
+    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+    animation: sk-scaleout 1.0s infinite ease-in-out;
+  }
+
+  @-webkit-keyframes sk-scaleout {
+    0% { -webkit-transform: scale(0) }
+    100% {
+      -webkit-transform: scale(1.0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes sk-scaleout {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    } 100% {
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+      opacity: 0;
+    }
   }
 
 }

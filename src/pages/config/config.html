@@ -1,21 +1,41 @@
 <ion-content>
-  <!-- BANDERAS -->
-  <div class="flags_container">
-    <img class="flag" src="assets/imgs/flags/es.png" alt="">
-    <img class="flag" src="assets/imgs/flags/en.png" alt="">
-    <img class="flag" src="assets/imgs/flags/ru.png" alt="">
-    <img class="flag" src="assets/imgs/flags/de.png" alt="">
-    <img class="flag" src="assets/imgs/flags/fr.png" alt="">
-    <img class="flag" src="assets/imgs/flags/pt.png" alt="">
+
+  <!-- SPINNER -->
+  <div *ngIf="mostrarSpinner" class="spinner">
+    <img src="assets/imgs/spinner_black.png" alt="spinner">
   </div>
-  <!-- MAPA -->
-  <div xFlex="100" class="map-full-card-content">
+
+  <div *ngIf="!mostrarSpinner">
+
+    <!-- MAIN TITLE -->
+    <div>
+      <ion-item class="language_selected" no-lines>
+        <!-- BACK BUTTON -->
+        <button class="back_button" ion-button item-left color="secondary" (click)="back()">
+          <ion-icon name="md-arrow-round-back"></ion-icon>
+        </button>
+        <ion-label text-center>{{language.name}}</ion-label>
+      </ion-item>
+    </div>
+    <!-- FLAGS -->
+    <div class="flags_container">
+      <img class="flag" src="assets/imgs/flags/es.png" alt="" (click)="selectLanguage('es')">
+      <img class="flag" src="assets/imgs/flags/en.png" alt="" (click)="selectLanguage('en')">
+      <img class="flag" src="assets/imgs/flags/ru.png" alt="" (click)="selectLanguage('ru')">
+      <img class="flag" src="assets/imgs/flags/de.png" alt="" (click)="selectLanguage('de')">
+      <img class="flag" src="assets/imgs/flags/fr.png" alt="" (click)="selectLanguage('fr')">
+      <img class="flag" src="assets/imgs/flags/pt.png" alt="" (click)="selectLanguage('pt')">
+    </div>
+  </div>
+
+  <!-- MAP -->
+  <div *ngIf="!mostrarSpinner" xFlex="100" class="map-full-card-content">
     <agm-map [latitude]="lat"
              [longitude]="lng"
              [zoom]="3"
              [disableDefaultUI]="true"
              [streetViewControl]="false"
-             (mapClick)="marcarUbicacion($event)">
+             (mapClick)="selectLocation($event)">
         <agm-marker
           [latitude]="lat"
           [longitude]="lng">

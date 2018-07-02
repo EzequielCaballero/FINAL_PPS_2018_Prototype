@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-//PAGINAS
+//PAGES
 import { ConfigPage } from '../config/config';
 
 @Component({
