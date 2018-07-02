@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 //PAGES
 import { HomePage } from '../home/home';
@@ -9,7 +9,7 @@ import { text } from '../../assets/data/language_package';
   selector: 'page-config',
   templateUrl: 'config.html',
 })
-export class ConfigPage {
+export class ConfigPage implements AfterViewInit {
   @ViewChild('flag_es') flag_es:ElementRef;
   @ViewChild('flag_en') flag_en:ElementRef;
   @ViewChild('flag_ru') flag_ru:ElementRef;
@@ -30,13 +30,16 @@ export class ConfigPage {
 
       this.language = text.language.es;
       console.log("LENGUAJE: " + JSON.stringify(this.language));
-      this.mostrarSpinner = true;
+      //this.mostrarSpinner = true;
+  }
+
+  ngAfterViewInit() {
+        this.selectLanguage('es');
   }
 
   ionViewDidLoad() {
     this.lat = -34.662305;
     this.lng = -58.36472349999997;
-    this.mostrarSpinner = false;
   }
 
   back(){
