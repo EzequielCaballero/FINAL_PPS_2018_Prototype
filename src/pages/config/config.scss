@@ -17,11 +17,17 @@ page-config {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 5px;
   }
 
   .flag{
     height: 50px;
     width: 50px;
+  }
+
+  .flag_selected{
+    padding-left:2.5px; padding-right:2.5px; 
+    border-bottom: 5px solid rgb(50, 129, 34);
   }
 
   .map-full-card-content {
