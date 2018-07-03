@@ -17,8 +17,8 @@
     <div class="flags_container">
       <img #flag_es class="flag" src="assets/imgs/flags/es.png" alt="" (click)="selectLanguage('es')">
       <img #flag_en class="flag" src="assets/imgs/flags/en.png" alt="" (click)="selectLanguage('en')">
-      <img #flag_ru class="flag" src="assets/imgs/flags/ru.png" alt="" (click)="selectLanguage('ru')">
       <img #flag_de class="flag" src="assets/imgs/flags/de.png" alt="" (click)="selectLanguage('de')">
+      <img #flag_ru class="flag" src="assets/imgs/flags/ru.png" alt="" (click)="selectLanguage('ru')">
       <img #flag_fr class="flag" src="assets/imgs/flags/fr.png" alt="" (click)="selectLanguage('fr')">
       <img #flag_pt class="flag" src="assets/imgs/flags/pt.png" alt="" (click)="selectLanguage('pt')">
     </div>
@@ -28,7 +28,7 @@
   <div *ngIf="mostrarSpinner" class="spinner">
     <img src="assets/imgs/spinner_black.png" alt="spinner">
   </div>
-  
+
   <!-- MAP -->
   <div *ngIf="!mostrarSpinner" xFlex="100" class="map-full-card-content">
     <agm-map [latitude]="lat"
