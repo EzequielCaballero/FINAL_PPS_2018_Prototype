@@ -135,7 +135,9 @@ define_countryCode(){
   for(let component of this.address_components){
     if(component.short_name !== null){
       console.log("DETALLE: " + component.short_name);
-      this.define_languageByCountryCode(component.short_name);
+      if(component.short_name.length == 2){
+        this.define_languageByCountryCode(component.short_name);
+      }
     }
   }
 }
@@ -241,8 +243,8 @@ define_languageByCountryCode(code:string){
     case 'AO':
     case 'MZ':
     this.selectLanguage('pt'); break;
-    // default:
-    // this.selectLanguage('es'); break;
+    default:
+    this.selectLanguage('es'); break;
   }
 }
 
