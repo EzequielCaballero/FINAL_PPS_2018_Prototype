@@ -14,6 +14,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ConfigPage } from '../pages/config/config';
 import { GeocodingProvider } from '../providers/geocoding/geocoding';
+import { DateTimeProvider } from '../providers/date-time/date-time';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { GeocodingProvider } from '../providers/geocoding/geocoding';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GeocodingProvider
+    GeocodingProvider,
+    DateTimeProvider
   ]
 })
 export class AppModule {}
