@@ -25,12 +25,12 @@
   </div>
 
   <!-- SPINNER -->
-  <div *ngIf="mostrarSpinner" class="spinner">
+  <div *ngIf="showSpinner" class="spinner">
     <img src="assets/imgs/spinner_black.png" alt="spinner">
   </div>
 
   <!-- MAP -->
-  <div *ngIf="!mostrarSpinner" xFlex="100" class="map-full-card-content">
+  <div *ngIf="!showSpinner" xFlex="100" class="map-full-card-content">
     <agm-map [latitude]="lat"
              [longitude]="lng"
              [zoom]="3"
@@ -43,5 +43,13 @@
         </agm-marker>
     </agm-map>
   </div>
+
+  <!-- SAVE BUTTON -->
+  <ion-fab bottom center>
+    <button ion-fab color="secondary"
+            (click)="saveChanges()">
+      <ion-icon class="button_fab" name="md-folder"></ion-icon>
+    </button>
+  </ion-fab>
 
 </ion-content>

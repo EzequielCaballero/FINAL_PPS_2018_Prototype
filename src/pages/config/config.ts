@@ -1,5 +1,7 @@
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
 //PAGES
 import { HomePage } from '../home/home';
 //LANGUAGE PACKAGE
@@ -20,7 +22,7 @@ export class ConfigPage implements AfterViewInit {
   @ViewChild('flag_pt') flag_pt:ElementRef;
 
   //SPINNER
-  mostrarSpinner:boolean = false;
+  showSpinner:boolean = false;
 
   //ATRIBUTES
   language:any;
@@ -29,9 +31,10 @@ export class ConfigPage implements AfterViewInit {
   formatted_address:any;
   address_components:any;
 
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              private _geoCoding:GeocodingProvider) {
+  constructor(public navCtrl     : NavController,
+              public navParams   : NavParams,
+              private storage    : Storage,
+              private _geoCoding : GeocodingProvider) {
 
       this.language = text.language.es;
   }
@@ -52,6 +55,11 @@ export class ConfigPage implements AfterViewInit {
 
   back(){
     this.navCtrl.push(HomePage, { 'language':this.language });
+  }
+
+  saveChanges(){
+    console.log("Save");
+    this.storage.set('language', this.language);
   }
 
   selectLanguage(selection:string){
@@ -114,7 +122,7 @@ export class ConfigPage implements AfterViewInit {
 
   // MAP USER ACTION
   selectLocation(event){
-    this.mostrarSpinner = true;
+    this.showSpinner = true;
     this._geoCoding.obtenerDireccionDetalle(event.coords.lat, event.coords.lng)
       .then((data:any)=>{
         this.lat = event.coords.lat;
@@ -126,7 +134,7 @@ export class ConfigPage implements AfterViewInit {
           console.log("Detalle: " + JSON.stringify(this.address_components));
           this.define_countryCode();
         }
-        this.mostrarSpinner = false;
+        this.showSpinner = false;
       })
       .catch((error)=>{
         console.log("ERROR: al convertir coordenadas -> dirección: " + error);
