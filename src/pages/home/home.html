@@ -7,9 +7,15 @@
     </ion-label>
   </ion-item>
   <!-- DATE -->
-
+  <ion-item>
+    <ion-label>Fecha</ion-label>
+    <ion-datetime [(ngModel)]="date" displayFormat="DD-MM-YYYY" doneText="Listo" cancelText="Cancelar" pickerFormat="DD-MM-YYYY"></ion-datetime>
+  </ion-item>
   <!-- HOUR -->
-
+  <ion-item>
+    <ion-label>Hora</ion-label>
+    <ion-datetime [(ngModel)]="hour" doneText="Listo" cancelText="Cancelar" displayFormat="HH:mm" pickerFormat="HH:mm"></ion-datetime>
+  </ion-item>
   <!-- CONFIG BUTTON -->
   <ion-fab bottom center>
     <button class="button_config" ion-fab color="primary"

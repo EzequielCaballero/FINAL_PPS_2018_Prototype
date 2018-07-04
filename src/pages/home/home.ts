@@ -4,6 +4,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ConfigPage } from '../config/config';
 //LANGUAGE PACKAGE
 import { text } from '../../assets/data/language_package';
+//SERVICES
+import { DateTimeProvider } from '../../providers/date-time/date-time';
 
 @Component({
   selector: 'page-home',
@@ -13,9 +15,16 @@ export class HomePage {
 
   //ATRIBUTES
   language:any;
+  date:string;
+  hour:string;
+  monthNames: string[];
+  monthShortNames: string[];
+  daysNames: string[];
+  daysShortNames: string[];
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams) {
+              public navParams: NavParams,
+              private _dateTime: DateTimeProvider) {
 
       if(this.navParams.data.language !== undefined){
         this.language = this.navParams.data.language;
@@ -24,6 +33,14 @@ export class HomePage {
         this.language = text.language.es;
       }
       console.log("Lenguaje: " + JSON.stringify(this.language));
+      this.monthNames = _dateTime.getMonthNames();
+      this.daysNames = _dateTime.getWeekDays();
+      this.daysShortNames = _dateTime.getWeekDaysShort();
+      this.monthShortNames = _dateTime.getMonthNamesShort();
+      this.date = _dateTime.getDate();
+      console.log("DATE: " + this.date);
+      this.hour = _dateTime.getHour();
+      console.log("HOUR: " + this.hour);
   }
 
   ionViewDidLoad() {
