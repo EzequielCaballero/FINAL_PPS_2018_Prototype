@@ -28,9 +28,11 @@ export class HomePage {
 
       if(this.navParams.data.language !== undefined){
         this.language = this.navParams.data.language;
+        this._dateTime.initialized(this.navParams.data.language.code);
       }
       else{
         this.language = text.language.es;
+        this._dateTime.initialized('es');
       }
       console.log("Lenguaje: " + JSON.stringify(this.language));
       this.monthNames = _dateTime.getMonthNames();

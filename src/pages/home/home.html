@@ -2,20 +2,29 @@
   <!-- CONTENT  -->
   <!-- TEXT -->
   <ion-item>
-    <ion-label text-center>
+    <ion-label class="title_main" text-center>
       {{language.text}}
     </ion-label>
   </ion-item>
-  <!-- DATE -->
-  <ion-item>
-    <ion-label>Fecha</ion-label>
-    <ion-datetime [(ngModel)]="date" displayFormat="DD-MM-YYYY" doneText="Listo" cancelText="Cancelar" pickerFormat="DD-MM-YYYY"></ion-datetime>
-  </ion-item>
-  <!-- HOUR -->
-  <ion-item>
-    <ion-label>Hora</ion-label>
-    <ion-datetime [(ngModel)]="hour" doneText="Listo" cancelText="Cancelar" displayFormat="HH:mm" pickerFormat="HH:mm"></ion-datetime>
-  </ion-item>
+
+  <div class="date_box">
+    <div class="img_box">
+      <img class="img_1" src="assets/imgs/clock.png" alt="">
+    </div>
+
+    <!-- DATE -->
+    <ion-item>
+      <ion-label>{{language.date.dateName}}</ion-label>
+      <ion-datetime [(ngModel)]="date" [monthNames]="monthNames" [monthShortNames]="monthShortNames" [dayShortNames]="daysShortNames" [dayNames]="daysNames"
+                    displayFormat="DD/MM/YYYY" [doneText]="language.date.button_ok" [cancelText]="language.date.button_cancel" pickerFormat="MMMM-DD-YYYY"></ion-datetime>
+    </ion-item>
+    <!-- HOUR -->
+    <ion-item>
+      <ion-label>{{language.date.hourName}}</ion-label>
+      <ion-datetime [(ngModel)]="hour" [doneText]="language.date.button_ok" [cancelText]="language.date.button_cancel" displayFormat="HH:mm" pickerFormat="HH:mm"></ion-datetime>
+    </ion-item>
+  </div>
+
   <!-- CONFIG BUTTON -->
   <ion-fab bottom center>
     <button class="button_config" ion-fab color="primary"

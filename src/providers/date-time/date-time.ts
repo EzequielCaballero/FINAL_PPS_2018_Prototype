@@ -5,8 +5,12 @@ import * as moment from 'moment';
 export class DateTimeProvider {
 
   constructor() {
-    console.log('Hello DateTimeProvider Provider');
-    moment.locale('es');
+    console.log('Data Time provider');
+  }
+
+  //INICIALIZAR
+  initialized(code:string){
+    moment.locale(code);
   }
 
   //RETORNA: días completos de la semana
@@ -36,6 +40,6 @@ export class DateTimeProvider {
 
   //RETORNA: hora actual
   getHour(){
-    return moment().format('LTS');
+    return moment().format('HH:mm');
   }
 }

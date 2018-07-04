@@ -1,4 +1,21 @@
 page-home {
+
+  .title_main{
+    font-size: 30px;
+  }
+
+  .img_box{
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img_1{
+    width: 150px;
+    height: 150px;
+  }
+
   .button_config{
     text-align: center;
     font-size: 30px;
