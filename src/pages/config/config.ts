@@ -34,12 +34,15 @@ export class ConfigPage implements AfterViewInit {
               private _geoCoding:GeocodingProvider) {
 
       this.language = text.language.es;
-      console.log("LENGUAJE: " + JSON.stringify(this.language));
-      //this.mostrarSpinner = true;
   }
 
   ngAfterViewInit() {
-        this.selectLanguage('es');
+    if(this.navParams.data.language !== undefined){
+      this.selectLanguage(this.navParams.data.language.code);
+    }
+    else{
+      this.selectLanguage('es');
+    }
   }
 
   ionViewDidLoad() {

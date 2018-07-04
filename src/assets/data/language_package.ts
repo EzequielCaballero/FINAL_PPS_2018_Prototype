@@ -3,27 +3,33 @@ export const text = {
   language:{
             es:{
               code: "es",
-              name: "Español"
+              name: "Español",
+              text: "Esto es una prueba"
             },
             en:{
               code: "en",
-              name: "English"
+              name: "English",
+              text: "This is a test"
             },
             de:{
               code: "de",
-              name: "Deutsch"
+              name: "Deutsch",
+              text: "Dies ist ein Test"
             },
             ru:{
               code: "ru",
-              name: "Pусский"
+              name: "Pусский",
+              text: "Это тест"
             },
             fr:{
               code: "fr",
-              name: "Français"
+              name: "Français",
+              text: "Ceci est un test"
             },
             pt:{
               code: "pt",
-              name: "Portugues"
+              name: "Portugues",
+              text: "Isso é uma Prov a"
             }
   }
 

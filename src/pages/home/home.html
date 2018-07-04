@@ -1,14 +1,11 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-  <button ion-button color="primary"
+  <ion-item>
+    <ion-label text-center>
+      {{language.text}}
+    </ion-label>
+  </ion-item>
+  <button class="button_config" ion-button color="primary"
           (click)="mostrarConfig()">
-    Configuración
+    <ion-icon name="ios-construct"></ion-icon>
   </button>
 </ion-content>
