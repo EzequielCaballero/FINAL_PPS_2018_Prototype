@@ -23,12 +23,14 @@
         <ion-item>
           <ion-label>{{language.date.dateName}}</ion-label>
           <ion-datetime [(ngModel)]="date" [monthNames]="monthNames" [monthShortNames]="monthShortNames" [dayShortNames]="daysShortNames" [dayNames]="daysNames"
-                        displayFormat="DD/MM/YYYY" [doneText]="language.date.button_ok" [cancelText]="language.date.button_cancel" pickerFormat="MMMM-DD-YYYY"></ion-datetime>
+                        displayFormat="DD/MM/YYYY" [doneText]="language.date.button_ok" [cancelText]="language.date.button_cancel" pickerFormat="MMMM-DD-YYYY"
+                        (click)="soundEffect()"></ion-datetime>
         </ion-item>
         <!-- HOUR -->
         <ion-item>
           <ion-label>{{language.date.hourName}}</ion-label>
-          <ion-datetime [(ngModel)]="hour" [doneText]="language.date.button_ok" [cancelText]="language.date.button_cancel" displayFormat="HH:mm" pickerFormat="HH:mm"></ion-datetime>
+          <ion-datetime [(ngModel)]="hour" [doneText]="language.date.button_ok" [cancelText]="language.date.button_cancel" displayFormat="HH:mm" pickerFormat="HH:mm"
+                        (click)="soundEffect()"></ion-datetime>
         </ion-item>
       </div>
 

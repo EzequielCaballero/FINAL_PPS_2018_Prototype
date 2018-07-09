@@ -19,6 +19,7 @@ import { DateTimeProvider } from '../providers/date-time/date-time';
 //STORAGE (NATIVE)
 import { IonicStorageModule } from '@ionic/storage';
 import { SoundsProvider } from '../providers/sounds/sounds';
+import { ToastProvider } from '../providers/toast/toast';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SoundsProvider } from '../providers/sounds/sounds';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GeocodingProvider,
     DateTimeProvider,
-    SoundsProvider
+    SoundsProvider,
+    ToastProvider
   ]
 })
 export class AppModule {}

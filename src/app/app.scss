@@ -1,4 +1,5 @@
 
+// SPLASH BACKGROUND
 .splashScreen {
   position: absolute;
   width: 100%;
@@ -14,6 +15,7 @@
   height: 100%;
 }
 
+// SPINNER ANIMATION
 .spinner {
   width: 30%;
   height: 30%;
@@ -59,5 +61,58 @@
   50% {
     transform: scale(1.0);
     -webkit-transform: scale(1.0);
+  }
+}
+
+// TOAST CONFIG
+.toast-container {
+  border-radius: 15px;
+  .toast-message {
+    text-align: center;
+  }
+}
+
+.toast-wrapper {
+  border-radius: 15px;
+}
+
+//SUCCESS Toast
+.success-toast {
+  .toast-wrapper {
+    background-color: rgba(35, 226, 94, 1);
+    .toast-container {
+      background-color: rgba(43, 195, 54, 0.61);
+    }
+    .toast-message {
+      background-color: rgba(39, 149, 30, 0.45);
+    }
+  }
+}
+
+//ERROR Toast
+.error-toast {
+  .toast-wrapper {
+    background-color: rgba(197, 28, 28, 0.61);
+    .toast-container {
+      background-color: rgba(197, 28, 28, 0.61);
+    }
+    .toast-message {
+      background-color: rgba(197, 28, 28, 0.61);
+    }
+  }
+}
+
+//WARNINg Toast
+.warning-toast {
+  .toast-wrapper {
+    background-color: rgba(231, 220, 171, 0.651); // color: red;
+    .toast-container {
+      background-color: rgba(240, 231, 113, 0.651);
+    }
+    .toast-message {
+      color: red;
+      font-weight: bold;
+      background-color: rgba(240, 231, 113, 0.651);
+    }
   }
 }

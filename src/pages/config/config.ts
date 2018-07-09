@@ -9,6 +9,7 @@ import { text } from '../../assets/data/language_package';
 //SERVICE
 import { GeocodingProvider } from '../../providers/geocoding/geocoding';
 import { SoundsProvider } from '../../providers/sounds/sounds';
+import { ToastProvider } from '../../providers/toast/toast';
 
 @Component({
   selector: 'page-config',
@@ -36,7 +37,8 @@ export class ConfigPage implements AfterViewInit {
               public navParams   : NavParams,
               private storage    : Storage,
               private _geoCoding : GeocodingProvider,
-              private _sounds    : SoundsProvider) {
+              private _sounds    : SoundsProvider,
+              private _toastSrv  : ToastProvider) {
 
       this.language = text.language.es;
   }
@@ -62,8 +64,9 @@ export class ConfigPage implements AfterViewInit {
 
   saveChanges(){
     console.log("Save");
-    this._sounds.reproducirSonido(this._sounds.get_soundClick());
+    // this._sounds.reproducirSonido(this._sounds.get_soundClick());
     this.storage.set('language', this.language);
+    this._toastSrv.showToast("Cambios guardados con éxito");
   }
 
   clickLanguage(code:string){

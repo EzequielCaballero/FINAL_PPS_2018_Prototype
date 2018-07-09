@@ -78,6 +78,10 @@ export class HomePage {
       })
   }
 
+  soundEffect(){
+    this._sounds.reproducirSonido(this._sounds.get_soundClick());
+  }
+
   showConfig(){
     this._sounds.reproducirSonido(this._sounds.get_soundClick());
     this.navCtrl.push(ConfigPage, { 'language':this.language });
