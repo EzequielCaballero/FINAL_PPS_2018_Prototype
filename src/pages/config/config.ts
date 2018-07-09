@@ -8,6 +8,7 @@ import { HomePage } from '../home/home';
 import { text } from '../../assets/data/language_package';
 //SERVICE
 import { GeocodingProvider } from '../../providers/geocoding/geocoding';
+import { SoundsProvider } from '../../providers/sounds/sounds';
 
 @Component({
   selector: 'page-config',
@@ -34,7 +35,8 @@ export class ConfigPage implements AfterViewInit {
   constructor(public navCtrl     : NavController,
               public navParams   : NavParams,
               private storage    : Storage,
-              private _geoCoding : GeocodingProvider) {
+              private _geoCoding : GeocodingProvider,
+              private _sounds    : SoundsProvider) {
 
       this.language = text.language.es;
   }
@@ -54,12 +56,19 @@ export class ConfigPage implements AfterViewInit {
   }
 
   back(){
+    this._sounds.reproducirSonido(this._sounds.get_soundClick());
     this.navCtrl.push(HomePage, { 'language':this.language });
   }
 
   saveChanges(){
     console.log("Save");
+    this._sounds.reproducirSonido(this._sounds.get_soundClick());
     this.storage.set('language', this.language);
+  }
+
+  clickLanguage(code:string){
+    this._sounds.reproducirSonido(this._sounds.get_soundClick());
+    this.selectLanguage(code);
   }
 
   selectLanguage(selection:string){
@@ -123,6 +132,7 @@ export class ConfigPage implements AfterViewInit {
   // MAP USER ACTION
   selectLocation(event){
     this.showSpinner = true;
+    this._sounds.reproducirSonido(this._sounds.get_soundClick());
     this._geoCoding.obtenerDireccionDetalle(event.coords.lat, event.coords.lng)
       .then((data:any)=>{
         this.lat = event.coords.lat;

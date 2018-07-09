@@ -18,6 +18,7 @@ import { GeocodingProvider } from '../providers/geocoding/geocoding';
 import { DateTimeProvider } from '../providers/date-time/date-time';
 //STORAGE (NATIVE)
 import { IonicStorageModule } from '@ionic/storage';
+import { SoundsProvider } from '../providers/sounds/sounds';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { IonicStorageModule } from '@ionic/storage';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GeocodingProvider,
-    DateTimeProvider
+    DateTimeProvider,
+    SoundsProvider
   ]
 })
 export class AppModule {}

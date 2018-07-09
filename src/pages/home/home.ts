@@ -7,6 +7,7 @@ import { ConfigPage } from '../config/config';
 import { text } from '../../assets/data/language_package';
 //SERVICES
 import { DateTimeProvider } from '../../providers/date-time/date-time';
+import { SoundsProvider } from '../../providers/sounds/sounds';
 
 @Component({
   selector: 'page-home',
@@ -29,7 +30,8 @@ export class HomePage {
   constructor(public navCtrl   : NavController,
               public navParams : NavParams,
               private storage  : Storage,
-              private _dateTime: DateTimeProvider) {
+              private _dateTime: DateTimeProvider,
+              private _sounds  : SoundsProvider) {
 
       this.showSpinner = true;
       this.initialized();
@@ -77,6 +79,7 @@ export class HomePage {
   }
 
   showConfig(){
+    this._sounds.reproducirSonido(this._sounds.get_soundClick());
     this.navCtrl.push(ConfigPage, { 'language':this.language });
   }
 
