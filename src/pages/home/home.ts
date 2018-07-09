@@ -57,6 +57,7 @@ export class HomePage {
             this._dateTime.initialized(this.navParams.data.language.code);
           }
           else{
+            // BY DEFAULT
             this.language = text.language.es;
             this._dateTime.initialized('es');
           }
@@ -68,8 +69,6 @@ export class HomePage {
         console.log("Lenguaje: " + JSON.stringify(this.language));
         this.monthNames = this._dateTime.getMonthNames();
         this.daysNames = this._dateTime.getWeekDays();
-        this.daysShortNames = this._dateTime.getWeekDaysShort();
-        this.monthShortNames = this._dateTime.getMonthNamesShort();
         this.date = this._dateTime.getDate();
         console.log("DATE: " + this.date);
         this.hour = this._dateTime.getHour();

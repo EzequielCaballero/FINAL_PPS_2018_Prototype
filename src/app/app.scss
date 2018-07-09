@@ -79,12 +79,13 @@
 //SUCCESS Toast
 .success-toast {
   .toast-wrapper {
+    border-radius: 15px;
     background-color: rgba(35, 226, 94, 1);
     .toast-container {
-      background-color: rgba(43, 195, 54, 0.61);
+      background-color: rgba(43, 195, 54, 0.78);
     }
     .toast-message {
-      background-color: rgba(39, 149, 30, 0.45);
+      background-color: rgba(16, 54, 13, 0.45);
     }
   }
 }
@@ -92,6 +93,7 @@
 //ERROR Toast
 .error-toast {
   .toast-wrapper {
+    border-radius: 15px;
     background-color: rgba(197, 28, 28, 0.61);
     .toast-container {
       background-color: rgba(197, 28, 28, 0.61);
@@ -105,6 +107,7 @@
 //WARNINg Toast
 .warning-toast {
   .toast-wrapper {
+    border-radius: 15px;
     background-color: rgba(231, 220, 171, 0.651); // color: red;
     .toast-container {
       background-color: rgba(240, 231, 113, 0.651);

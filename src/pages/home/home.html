@@ -8,35 +8,48 @@
   <div *ngIf="!showSpinner">
 
       <!-- TEXT -->
-      <ion-item>
-        <ion-label class="title_main" text-center>
-          {{language.text}}
+      <ion-item class="title" no-lines>
+        <ion-label class="title_text" text-center>
+          <strong>{{language.test}}</strong>
         </ion-label>
       </ion-item>
 
       <div class="date_box">
         <div class="img_box">
-          <img class="img_1" src="assets/imgs/clock.png" alt="">
+          <img class="img" src="assets/imgs/clock.png" alt="">
         </div>
 
         <!-- DATE -->
-        <ion-item>
-          <ion-label>{{language.date.dateName}}</ion-label>
-          <ion-datetime [(ngModel)]="date" [monthNames]="monthNames" [monthShortNames]="monthShortNames" [dayShortNames]="daysShortNames" [dayNames]="daysNames"
+        <ion-item class="date_item">
+          <ion-label color="dark"><strong>{{language.date.dateName}}</strong></ion-label>
+          <ion-datetime [(ngModel)]="date" [monthNames]="monthNames" [dayNames]="daysNames"
                         displayFormat="DD/MM/YYYY" [doneText]="language.date.button_ok" [cancelText]="language.date.button_cancel" pickerFormat="MMMM-DD-YYYY"
                         (click)="soundEffect()"></ion-datetime>
         </ion-item>
         <!-- HOUR -->
-        <ion-item>
-          <ion-label>{{language.date.hourName}}</ion-label>
+        <ion-item class="hour_item">
+          <ion-label color="dark"><strong>{{language.date.hourName}}</strong></ion-label>
           <ion-datetime [(ngModel)]="hour" [doneText]="language.date.button_ok" [cancelText]="language.date.button_cancel" displayFormat="HH:mm" pickerFormat="HH:mm"
                         (click)="soundEffect()"></ion-datetime>
         </ion-item>
       </div>
 
+      <!-- MEASURE -->
+      <div class="measure_box">
+        <div class="img_box">
+          <img class="img" src="assets/imgs/marker_routs.png" alt="">
+        </div>
+        <div class="measure_item">
+          <ion-label text-center>{{language.measure.title}}</ion-label>
+          <ion-label class="measure_item_unit" text-center><strong>{{language.measure.unit}}</strong></ion-label>
+          <ion-label class="measure_item_example" text-center><strong>{{language.measure.example}}</strong></ion-label>
+        </div>
+      </div>
+
+
       <!-- CONFIG BUTTON -->
       <ion-fab bottom center>
-        <button ion-fab color="primary"
+        <button ion-fab color="danger"
                 (click)="showConfig()">
           <ion-icon class="button_fab" name="ios-construct"></ion-icon>
         </button>

@@ -53,6 +53,7 @@ export class ConfigPage implements AfterViewInit {
   }
 
   ionViewDidLoad() {
+    // DEFAULT ADDRESS - UTN Avellaneda
     this.lat = -34.662305;
     this.lng = -58.36472349999997;
   }
@@ -63,10 +64,10 @@ export class ConfigPage implements AfterViewInit {
   }
 
   saveChanges(){
-    console.log("Save");
-    // this._sounds.reproducirSonido(this._sounds.get_soundClick());
+    console.log("Save changes in storage");
+    this.storage.clear();
     this.storage.set('language', this.language);
-    this._toastSrv.showToast("Cambios guardados con éxito");
+    this._toastSrv.showToast(this.language.toast.success_msg);
   }
 
   clickLanguage(code:string){
